@@ -37,7 +37,7 @@ var options = {
 const connectWithRetry = () => {
 	mongoose.connect('mongodb://localhost:27017/userDb', options).then(()=>{
 		console.log('MongoDB is connected')
-	}).catch(err=>{
+	}).catch(err=> {
 		console.log('MongoDB connection unsuccessful, retry after 5 seconds.', err)
 		setTimeout(connectWithRetry, 5000)
 	})
