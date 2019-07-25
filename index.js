@@ -7,9 +7,9 @@ var fs = require('fs')
 var ca = fs.readFileSync('./mongodb-cert.crt')
 var key = fs.readFileSync('./mongodb.pem')   
 var cert = fs.readFileSync('./mongodb-cert.crt') 
-var http = require('http');
+var http = require('http')
 
-var app = express();
+var app = express()
 
 /**
  * Connection Options for MongoDB
