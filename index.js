@@ -9,7 +9,7 @@ var key = fs.readFileSync('./mongodb.pem')
 var cert = fs.readFileSync('./mongodb-cert.crt') 
 var http = require('http')
 
-var app = express()
+var app = express();
 
 /**
  * Connection Options for MongoDB
