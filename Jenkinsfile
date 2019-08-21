@@ -1,20 +1,15 @@
-pipeline {
-    agent any 
-    stages {
-        stage('Build') { 
-            steps {
-                echo "building pipeline"
+ 
+pipeline { 
+   agent { 
+        docker { 
+                image 'node' 
+               }
             }
-        }
-        stage('Test') { 
-            steps {
-                echo "testing pipeline..."
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                echo "deploying it"
-            }
-        }
+       stages { 
+           stage('Build') { 
+                      steps { 
+                           sh 'npm install'
+                     }
+               }
+         }
     }
-}
