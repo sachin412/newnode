@@ -8,7 +8,7 @@ pipeline {
        stages { 
            stage('Build') { 
                       steps { 
-                           sh 'npm install'
+                           sh './node_modules/.bin/mocha --recursive -f checkstyle ./test/*.* --timeout 10000 '
                      }
                }
          }
