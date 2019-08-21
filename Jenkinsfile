@@ -8,7 +8,8 @@ pipeline {
             }
                       steps { 
                              sh '''   
-                     ./node_modules/.bin/eslint --ignore-path .gitignore . > test.xml         
+                     ./node_modules/.bin/eslint --ignore-path .gitignore . > test.xml 
+                     ./node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000
                      echo "hello"                                    
                 '''                                      
                      }
@@ -19,7 +20,7 @@ pipeline {
                       steps  { 
                              sh ''' 
                         echo "perfect" 
-                      ./test/*.* --timeout 10000                                       
+                                                         
                 '''                                      
                      }
                }
