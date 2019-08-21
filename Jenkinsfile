@@ -14,7 +14,7 @@ pipeline {
                      }
                }
             stage('test') { 
-             agent {    docker { image 'mongodb'}
+             agent {    docker { image 'mongo'}
                       }
                       steps { 
                              sh '''                            
