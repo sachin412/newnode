@@ -18,10 +18,9 @@ pipeline {
              agent {    docker { image 'mongo'}
                       }
                       steps  { 
-                             sh ''' 
-                        echo "perfect" 
+                             sh  'echo "perfect"' 
                                                          
-                '''                                      
+                                                
                      }
                }
            
