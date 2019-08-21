@@ -16,7 +16,7 @@ pipeline {
             stage('test') { 
              agent {    docker { image 'mongo'}
                       }
-                      steps { 
+                      steps dir('/home/ubuntu/node/newnode') { 
                              sh '''                            
                      ./node_modules/.bin/mocha --recursive -f checkstyle ./test/*.* --timeout 10000                                       
                 '''                                      
