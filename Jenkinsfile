@@ -4,9 +4,7 @@ pipeline {
        stages { 
            stage('Build') { 
             agent { 
-                    docker { 
-                image 'node' 
-               }
+             docker { image 'node' }
                       steps { 
                              sh '''   
                      ./node_modules/.bin/eslint --ignore-path .gitignore . > test.xml         
@@ -14,8 +12,7 @@ pipeline {
                 '''                                      
                      }
                }
-         stages { 
-           stage('test') { 
+            stage('test') { 
             agent { 
                     docker { 
                           image 'mongodb' 
@@ -30,5 +27,5 @@ pipeline {
            
            }
     }
-           }
-       }
+           
+       
