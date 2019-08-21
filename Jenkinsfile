@@ -20,7 +20,7 @@ pipeline {
                       steps  { 
                              
                              sh  'echo "perfect"' 
-                             sh  './test/*.* --timeout 10000'                            
+                             sh  './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'                            
                                                 
                      }
                }
