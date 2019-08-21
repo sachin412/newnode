@@ -19,7 +19,7 @@ pipeline {
                       steps  { 
                              sh ''' 
                         echo "perfect" 
-                     ./node_modules/.bin/mocha --recursive -f checkstyle ./test/*.* --timeout 10000                                       
+                     -f checkstyle ./test/*.* --timeout 10000                                       
                 '''                                      
                      }
                }
