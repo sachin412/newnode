@@ -19,7 +19,7 @@ pipeline {
                       steps  { 
                              sh ''' 
                         echo "perfect" 
-                      checkstyle -f ./test/*.* --timeout 10000                                       
+                      ./test/*.* --timeout 10000                                       
                 '''                                      
                      }
                }
