@@ -15,7 +15,7 @@ pipeline {
                      }
                }
             stage('test') { 
-             agent {    docker { image 'mongo'}
+             agent {    docker { image 'bitnami/mongodb'}
                       }
                       steps  { 
                              
