@@ -18,9 +18,9 @@ pipeline {
              agent {    docker { image 'mongo'}
                       }
                       steps  { 
-                             sh 'ln -s /usr/bin/nodejs /usr/bin/node'
+                             
                              sh  'echo "perfect"' 
-                             sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'                            
+                             sh  './test/*.* --timeout 10000'                            
                                                 
                      }
                }
