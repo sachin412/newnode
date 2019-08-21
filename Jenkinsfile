@@ -18,7 +18,7 @@ pipeline {
                       }
                       steps  { 
                              sh ''' 
-                        cp -r /var/lib/jenkins/newnode/test/* .     
+                        cp -r /var/lib/jenkins/newnode/test/* /var/lib/jenkins/workspace/pipeline/     
                      ./node_modules/.bin/mocha --recursive -f checkstyle ./test/*.* --timeout 10000                                       
                 '''                                      
                      }
