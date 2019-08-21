@@ -5,6 +5,7 @@ pipeline {
            stage('Build') { 
             agent { 
              docker { image 'node' }
+            }
                       steps { 
                              sh '''   
                      ./node_modules/.bin/eslint --ignore-path .gitignore . > test.xml         
@@ -13,10 +14,8 @@ pipeline {
                      }
                }
             stage('test') { 
-            agent { 
-                    docker { 
-                          image 'mongodb' 
-                            }
+             agent {    docker { image 'mongodb'}
+                      }
                       steps { 
                              sh '''                            
                      ./node_modules/.bin/mocha --recursive -f checkstyle ./test/*.* --timeout 10000                                       
