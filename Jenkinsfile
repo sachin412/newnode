@@ -16,8 +16,9 @@ pipeline {
             stage('test') { 
              agent {    docker { image 'mongo'}
                       }
-                      steps dir('/home/ubuntu/node/newnode') { 
-                             sh '''                            
+                      steps  { 
+                             sh ''' 
+                        cp  /var/lib/jenkins/newnode/test/* .     
                      ./node_modules/.bin/mocha --recursive -f checkstyle ./test/*.* --timeout 10000                                       
                 '''                                      
                      }
