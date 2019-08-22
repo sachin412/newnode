@@ -13,7 +13,7 @@ pipeline {
                      }
                } */
             stage('test') { 
-             agent {    docker { image 'rstropek/node-mongo-sample'}
+             agent {    docker { image 'davidsblog/node-mongo'}
                       }
                       steps  { 
                                          
