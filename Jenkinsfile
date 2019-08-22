@@ -6,7 +6,9 @@ pipeline {
             agent { 
              docker { image 'mongo' }
             }
-                      steps { sh  'echo "perfect"' 
+                      steps { sh  'mongo' 
+                             sh  'use admin'
+                             sh 'db.createUser({user:"admin", pwd:"admin123", roles:[{role:"root", db:"admin"}]})'
                                                       
                      }
                }
