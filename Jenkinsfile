@@ -4,7 +4,7 @@ pipeline {
        stages { 
            stage('Build') { 
             agent { 
-             docker { image 'node' }
+             docker { image 'mongo' }
             }
                       steps { 
                              sh '''   
@@ -15,7 +15,7 @@ pipeline {
                      }
                }
             stage('test') { 
-             agent {    docker { image 'bitnami/mongodb'}
+             agent {    docker { image 'node'}
                       }
                       steps  { 
                              
