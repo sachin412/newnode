@@ -14,7 +14,7 @@ pipeline {
                      }
                } */
             stage('test') { 
-             agent {    docker { image 'ageapps/docker-node-mongo'
+             agent {    docker { image 'vivekrajyaguru/nodemongoimage'
                                
                                }
                       }
