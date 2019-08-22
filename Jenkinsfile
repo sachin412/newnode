@@ -4,7 +4,9 @@ pipeline {
        stages { 
            stage('Build') { 
             agent { 
-             docker { image 'mongo' }
+             docker { image 'mongo'
+                      
+                    }
             }
                       steps {
                        echo "hello"                      
@@ -12,13 +14,14 @@ pipeline {
                      }
                } 
             stage('test') { 
-             agent {    docker { image 'node'}
+             agent {    docker { image 'node'
+                               args '-p 8080:8080'
+                               }
                       }
                       steps  {                                         
                              sh '''  
-                           cd /var/lib/jenkins/newnode
-
-                       npm install --only=dev      
+                       npm install
+                       npm build
                      ./node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml 
                      ./node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000 
                      echo "hello"                                    
