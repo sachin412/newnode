@@ -6,9 +6,7 @@ pipeline {
             agent { 
              docker { image 'mongo' }
             }
-                      steps { sh  'mongo' 
-                             sh  'use admin'
-                             sh 'db.createUser({user:"admin", pwd:"admin123", roles:[{role:"root", db:"admin"}]})'
+                      steps { sh  'mongod --quiet --fork --noauth --pidfilepath ${WORKSPACE}/mongopid --logpath ${WORKSPACE}/data/log --dbpath ${WORKSPACE}/data/db'
                                                       
                      }
                }
