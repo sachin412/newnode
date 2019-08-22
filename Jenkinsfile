@@ -20,6 +20,7 @@ pipeline {
                       }
                       steps  {                                         
                              sh '''  
+                             chown -R $(whoami) ~/.npm
                        npm install
                        npm build
                      ./node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml 
