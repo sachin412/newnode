@@ -7,7 +7,7 @@ pipeline {
              docker { image 'mongo' }
             }
                       steps {
-                       sh  'mongo admin -u uname -p 'admin123''
+                       sh  'mongo admin -u admin -p 'admin123''
                         
                                                       
                      }
