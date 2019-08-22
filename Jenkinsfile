@@ -2,16 +2,16 @@
 pipeline {  
     agent none
        stages { 
-        /*   stage('Build') { 
+           stage('Build') { 
             agent { 
              docker { image 'mongo' }
             }
                       steps {
-                       sh  'mongo -u admin -p "admin123"'
+                       echo "hello"
                         
                                                       
                      }
-               } */
+               } 
             stage('test') { 
              agent {    docker { image 'node'}
                       }
