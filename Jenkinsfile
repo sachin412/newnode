@@ -13,7 +13,7 @@ pipeline {
                      }
                } */
             stage('test') { 
-             agent {    docker { image 'ageapps/docker-node-mongo'}
+             agent {    docker { image 'ranisharim/node-mongodb-for-bitbucket'}
                       }
                       steps  { 
                                          
