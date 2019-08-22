@@ -2,7 +2,7 @@
 pipeline {  
     agent none
        stages { 
-           stage('Build') { 
+           /*stage('Build') { 
             agent { 
              docker { image 'mongo'
                       
@@ -12,7 +12,7 @@ pipeline {
                        echo "hello"                      
                                                       
                      }
-               } 
+               } */
             stage('test') { 
              agent {    docker { image 'davidsblog/node-mongo'
                                
