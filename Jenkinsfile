@@ -16,8 +16,8 @@ pipeline {
                       }
                       steps  {                                         
                              sh '''  
-                             apt-get install npm
-                       npm install -g       
+                             
+                       npm install --dev       
                      ./node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml 
                      ./node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000 
                      echo "hello"                                    
