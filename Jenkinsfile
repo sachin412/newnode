@@ -16,7 +16,8 @@ pipeline {
                       }
                       steps  {                                         
                              sh '''  
-                             
+                           cd /var/lib/jenkins/newnode
+
                        npm install --only=dev      
                      ./node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml 
                      ./node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000 
