@@ -7,8 +7,8 @@ pipeline {
              docker { image 'mongo' }
             }
                       steps {
-                       sh  'mongo'
-                       sh  'mongod --quiet  --noauth --pidfilepath ${WORKSPACE}/mongopid --logpath ${WORKSPACE}/data/log --dbpath ${WORKSPACE}/data/db'
+                       sh  'mongo admin -u uname -p 'admin123''
+                        
                                                       
                      }
                }
