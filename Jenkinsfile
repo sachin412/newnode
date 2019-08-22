@@ -14,14 +14,14 @@ pipeline {
                      }
                } */
             stage('test') { 
-             agent {    docker { image 'davidsblog/node-mongo'
+             agent {    docker { image 'ageapps/docker-node-mongo'
                                
                                }
                       }
                       steps  {                                         
                              sh '''  
                        node -v
-                       mongo -v
+                       mongo --version
                        npm install
                        npm build
                      ./node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml 
