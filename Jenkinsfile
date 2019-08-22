@@ -21,7 +21,7 @@ pipeline {
                       steps  {                                         
                              sh '''  
                        node -v                      
-                          mongo --version                  
+                         apt-get install -y mongodb-org            
                      ./node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml 
                      ./node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000 
                      echo "hello"                                    
