@@ -15,7 +15,7 @@ pipeline {
                } 
             stage('test') { 
              agent {    docker { image 'node'
-                               args '-p 8080:8080'
+                               args '-p 9999:8080'
                                }
                       }
                       steps  {                                         
