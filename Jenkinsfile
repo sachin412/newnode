@@ -2,23 +2,21 @@
 pipeline {  
     agent none
        stages { 
-         /*  stage('Build') { 
+           stage('Build') { 
             agent { 
              docker { image 'mongo' }
             }
                       steps {
-                       echo "hello"
-                        
+                       echo "hello"                      
                                                       
                      }
-               } */
+               } 
             stage('test') { 
-             agent {    docker { image 'davidsblog/node-mongo'}
+             agent {    docker { image 'node'}
                       }
-                      steps  { 
-                                         
-                                          sh '''   
-                       npm install  -g            
+                      steps  {                                         
+                             sh '''   
+                       npm install -g       
                      ./node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml 
                      ./node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000 
                      echo "hello"                                    
