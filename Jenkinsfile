@@ -6,7 +6,9 @@ pipeline {
             agent { 
              docker { image 'mongo' }
             }
-                      steps { sh  'mongod --quiet --fork --noauth --pidfilepath ${WORKSPACE}/mongopid --logpath ${WORKSPACE}/data/log --dbpath ${WORKSPACE}/data/db'
+                      steps {
+                       sh  'mongo'
+                       sh  'mongod --quiet  --noauth --pidfilepath ${WORKSPACE}/mongopid --logpath ${WORKSPACE}/data/log --dbpath ${WORKSPACE}/data/db'
                                                       
                      }
                }
