@@ -10,7 +10,7 @@ node {
              * Run some tests which require MySQL, and assume that it is
              * available on the host name `db`
              */
-            sh 'apt install mongodb-org'
+            sh 'sudo apt install mongodb-org'
             sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml '
             sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
         }
