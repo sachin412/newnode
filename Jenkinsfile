@@ -1,9 +1,9 @@
 node {
     checkout scm
-    docker.image('mongo'){ c ->
-        docker.image('mongo').withRun('-e "MYSQL_ROOT_PASSWORD=myadmin"') inside("--link ${c.id}:db") {
+    docker.image('mongo').withRun('-e "MYSQL_ROOT_PASSWORD=my-secret-pw"') { c ->
+        docker.image('mysql:5').inside("--link ${c.id}:db") {
             /* Wait until mysql service is up */
-            sh 'echo "hello"'
+            sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
         }
         docker.image('node').inside("--link ${c.id}:db") {
             /*
@@ -12,7 +12,6 @@ node {
              */
             sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml '
             sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
-            
         }
     }
 }
