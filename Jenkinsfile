@@ -1,7 +1,7 @@
 node {
     checkout scm
     docker.image('mongo'){ c ->
-        docker.image('mongo').inside("--link ${c.id}:db") {
+        docker.image('mongo').withRun('-e "MYSQL_ROOT_PASSWORD=myadmin"') inside("--link ${c.id}:db") {
             /* Wait until mysql service is up */
             sh 'echo "hello"'
         }
