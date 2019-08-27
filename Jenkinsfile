@@ -1,13 +1,13 @@
-pipeline {
-    agent {
-        docker { image 'myimge:latest' }
+ node {
+    checkout scm
+    /*
+     * In order to communicate with the MySQL server, this Pipeline explicitly
+     * maps the port (`3306`) to a known port on the host machine.
+     */
+    docker.image('myimge').withRun('-e "MONGO_ROOT_PASSWORD=admin" -p 27017:27017') { c ->
+        /* Wait until mysql service is up */
+        sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml'
+        /* Run some tests which require MySQL */
+        sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
     }
-    stages {
-        stage('Test') {
-            steps {
-                sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml '
-                sh 'mongoimport --host=127.0.0.1 -d testdb -c testc --file test/index_test.js'
-            }
-        }
-    }
-} 
+}
