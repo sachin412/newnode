@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'ageapps/docker-node-mongo' }
+        docker { image 'myimge:latest' }
     }
     stages {
         stage('Test') {
