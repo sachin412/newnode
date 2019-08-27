@@ -8,6 +8,6 @@
         /* Wait until mysql service is up */
         sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml'
         /* Run some tests which require MySQL */
-        sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
+        sh 'npm run test'
     }
 }
