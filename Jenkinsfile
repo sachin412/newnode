@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Test') {
                agent {
-                   docker { image 'mongdb' } 
+                   docker { image 'node1:try4' } 
                  
                }
             steps {
