@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Test') {
                agent {
-                docker { image 'myimage'
+                docker { image 'mongdb'
                        args '-p 27018:27017'
                         }
                }
@@ -12,6 +12,7 @@ pipeline {
                 sh 'npm -v'
                 sh 'node -v'
                 sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml'
+                sh 'npm run test'
                 
             }
         }
