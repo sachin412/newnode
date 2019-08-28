@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker { image 'myimage' 
-               args '-p 27018:27017 tail -f /dev/null'
+               args '-p 27018:27017'
                }
     }
     stages {
