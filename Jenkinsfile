@@ -20,7 +20,7 @@ pipeline {
                 docker { image 'mongo' }
             }
             steps {
-                sh 'node -v'
+                
                 sh 'npm run test'
             }
         }
