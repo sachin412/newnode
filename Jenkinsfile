@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Test') {
                agent {
-                docker { image 'myimage'
+                docker { image 'myimage1'
                        args '-p 27017:27017'
                         }
                }
