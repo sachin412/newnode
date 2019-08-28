@@ -13,5 +13,15 @@ pipeline {
                 sh 'npm run test'
             }
         }
+    stage('Front-end') {
+            agent {
+                docker { image 'mongo' }
+            }
+            steps {
+                sh 'node -v'
+                
+            }
+        }
+    
     }
 }
