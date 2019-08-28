@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Test') {
                agent {
-                docker { image 'mongdb' }
+                docker { image 'mongdb' 
+                  args '-p 27017:27017' }
                }
             steps {
                 sh 'npm -v'
