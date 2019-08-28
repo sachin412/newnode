@@ -10,8 +10,7 @@ pipeline {
                }
             steps {
                 sh 'npm -v'
-                sh 'node -v'   
-                sh 'service mongodb start'
+                sh 'node -v'                                    
                 sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml'
                 sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
                  
