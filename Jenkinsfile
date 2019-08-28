@@ -11,7 +11,7 @@ pipeline {
                 sh 'npm -v'
                 sh 'node -v'               
                 sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml'
-                sh 'npm run test'
+                sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
                  
             }
         }
