@@ -11,6 +11,7 @@ pipeline {
             steps {
                 sh 'npm -v'
                 sh 'node -v'
+                sh 'chmod 777 /run/mongodb/mongodb.pid'
                 sh 'service mongodb start'
                 sh 'service mongodb status'
                 sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml'
