@@ -5,7 +5,7 @@ pipeline {
         stage('Test') {
                agent {
                 docker { image 'mongdb'
-                       args '-p 27018:27017'
+                       args '-p 27017:27017'
                         }
                }
             steps {
