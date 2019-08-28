@@ -1,11 +1,13 @@
 pipeline {
-    agent {
-        docker { image 'myimage' 
-               args '-p 27018:27017'
-               }
-    }
+    agent none    
+    
     stages {
         stage('Test') {
+               agent {
+                docker { image 'myimage'
+                       args '-p 27018:27017'
+                        }
+               }
             steps {
                 sh 'npm -v'
                 sh 'node -v'
