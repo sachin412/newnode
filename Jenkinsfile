@@ -1,7 +1,6 @@
 pipeline {
     agent {
-        docker { image 'myimage1'
-                args '-u 0'}
+        docker { image 'node'}
     }
     stages {
         stage('Test') {
