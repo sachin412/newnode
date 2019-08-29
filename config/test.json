@@ -1,3 +1,4 @@
 {
-    "DBHost": "mongodb://172.0.0.1:27017/userDb"
+    "variables": { "password": "14121993@sac" }
+    "DBHost": "mongodb+srv://mongouser1:`password`@cluster0-hchx4.mongodb.net/test?retryWrites=true&w=majority"
 }
