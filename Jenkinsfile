@@ -10,5 +10,11 @@ pipeline {
                 sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
             }
         }
+        
+        stage('Checkstyle') {
+            steps {
+                checkstyle pattern: 'test.xml'
+            }
+        }        
     }
 }
