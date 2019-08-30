@@ -23,8 +23,7 @@ var options = {
 	bufferMaxEntries: 0,
 	useNewUrlParser: true,
 	sslValidate: true,
-	sslKey: cert,
-	sslCert: cert
+	
 } 
 
 
