@@ -160,7 +160,7 @@ app.post('/updateUser/:id', (req, resp) => {
 const server = http.createServer(app)
 server.on('listening',function(){
 	console.log('ok, server is running')
-})
+}) 
 
 server.listen(8080)
 
