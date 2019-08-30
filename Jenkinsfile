@@ -11,13 +11,11 @@ pipeline {
             }
         }
         
-        checksPublishResults(
-    tasks: true,
-    pmd: [pattern: '**/target/pmd-results.xml', thresholds: [fail: [low: 100]]],
-    cpd: [archive: false],
-    aggregation: [thresholds: [fail: [high: 0]]],
-    archive: true
-            )
-
+       stage('Checkstyle') {
+    steps {
+        sh 'test.xml --report=checkstyle --report-file=`pwd`test.xml --standard=PSR2 --extensions=php --ignore=autoload.php --ignore=vendor/ . || exit 0'
+        checkstyle pattern: 'build/logs/checkstyle.xml'
+            }
+        }
     }
 }
