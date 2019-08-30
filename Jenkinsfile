@@ -6,7 +6,8 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'ls'
+                sh 'npm install'
+                sh 'npm install eslint'
                 sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml'
                 sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
             }
