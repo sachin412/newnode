@@ -11,5 +11,11 @@ pipeline {
             }
         }        
      
+        
+        stage('Checkstyle') {
+           steps {        
+        checkstyle pattern: 'test.xml'
+             }
+         }
     }
 }
