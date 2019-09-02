@@ -20,7 +20,8 @@ pipeline {
        
         stage('SonarQube analysis 1') {
             steps {
-                sh 'mvn clean package sonar:sonar'
+                sh 'npm install sonarqube-scanner --save-dev'
+                sh 'npm run sonar'
             }
         }
       }
