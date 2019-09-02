@@ -7,7 +7,7 @@
     "start": "node index.js",   
     "test": "./node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000",
     "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore .",
-     "sonar": "node sonar-project.js"    
+    "sonar": "node sonar-project.js"    
   },
   "author": "",
   "license": "ISC",
