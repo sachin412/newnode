@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "sonar": "node sonar-project.js",
+    "start": "node index.js",   
     "test": "./node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000",
-    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore ."
+    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore .",
+     "sonar": "node sonar-project.js"    
   },
   "author": "",
   "license": "ISC",
