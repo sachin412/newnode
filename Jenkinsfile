@@ -17,15 +17,13 @@ pipeline {
         checkstyle pattern: 'test.xml'
              }
          }
-    
-    stage('build && SonarQube analysis') {
+       
+        stage('SonarQube analysis 1') {
             steps {
-                withSonarQubeEnv('sonarqube') {
-                    // Optionally use a Maven environment you've configured already
-                              sh 'echo "hello"'
-                    }
-                }
+                sh 'mvn clean package sonar:sonar'
             }
         }
+      }
+   }
     
     
