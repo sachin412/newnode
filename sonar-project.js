@@ -5,4 +5,4 @@ sonarqubeScanner({
                 'sonar.sources': '.',
                 'sonar.inclusions' : 'src/**' // Entry point of your code
         }  
-}, () => {}); 
+}, () => {})
