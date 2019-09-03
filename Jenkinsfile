@@ -16,6 +16,7 @@ pipeline {
         stage('Checkstyle') {
            steps {        
         checkstyle pattern: 'test.xml'
+               sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . > test.xml'
              }
          }
        
