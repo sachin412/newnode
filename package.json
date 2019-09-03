@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",   
     "test": "./node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000",
-    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore .",
+    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore ."
        
   },
   "author": "",
