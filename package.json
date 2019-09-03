@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",   
+    "start": "node index.js",
     "test": "./node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000",
     "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore ."
-       
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +26,7 @@
     "mocha": "^5.2.0",
     "mockgoose": "^7.3.5",
     "proxyquire": "^2.0.1",
-    "sinon": "^6.1.4"
+    "sinon": "^6.1.4",
+    "sonarqube-scanner": "^2.5.0"
   }
 }
