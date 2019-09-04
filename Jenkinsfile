@@ -17,10 +17,10 @@ pipeline {
          }       
         stage('SonarQube analysis 1') {
             steps {
-                sh 'node sonar-project.js'                
-            }
-        }
+                withSonarQubeEnv('sonarqube') {                                  
+                        sh 'node sonar-project.js'
+                }
+              }
+          }
       }
    }
-    
-    
