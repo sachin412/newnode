@@ -6,8 +6,10 @@ pipeline {
    stages {
         stage('Test') {
             steps {
+                sh 'npm install mocha-junit-reporter --save-dev'
                 sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > check.xml' 
-                sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000  > test1.xml'            
+                sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000  > test1.xml'  
+                sh 'MOCHA_FILE=./jenkins-test-results.xml ./node_modules/.bin/mocha tests/** --reporter mocha-junit-reporter'
                   }
         }        
         stage('Checkstyle') {
@@ -24,7 +26,12 @@ pipeline {
               }
           }
      }
-    
+     post {
+         always {
+              checkstyle pattern: 'test.xml'
+              junit 'test1.xml'
+          }
+        } 
 }
   
         
