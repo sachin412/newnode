@@ -1,7 +1,6 @@
 pipeline {
     agent {
-        docker { image 'node'
-               args '-u 0'}
+        docker { image 'node' }
     }
     stages {
         stage('Test') {
@@ -22,12 +21,13 @@ pipeline {
                 }
               }
           }
-         }
-   }
+        
         post {
          always {
               checkstyle pattern: 'test.xml'
               junit 'test1.xml'
           }
-        } 
-    
+        }
+     }
+   }
+        
