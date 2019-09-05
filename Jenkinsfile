@@ -12,7 +12,7 @@ pipeline {
         }        
         stage('Checkstyle') {
            steps {   
-                 checkstyle pattern: 'check.xml'
+                 sh 'echo "hello"'
                                 
                  }
          }       
