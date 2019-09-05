@@ -23,12 +23,12 @@ pipeline {
               }
           }
      }
-     post {
+   /*  post {
          always {
               checkstyle pattern: 'test.xml'
               junit 'test1.xml'
           }
-        }
+        } */
      }
   
         
