@@ -1,6 +1,6 @@
  node {
     checkout scm
-    docker.image('mysql:5').withRun('-e "MYSQL_ROOT_PASSWORD=Devops@000!!!" -p 3308:3306') { c ->
+    docker.image('mysql:5').withRun('-e "MYSQL_ROOT_PASSWORD=Devops@000!!!" -p 3307:3306') { c ->
         docker.image('mysql:5').inside("--link ${c.id}:db") {
           /* Wait until mysql service is up */
           sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
