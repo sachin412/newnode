@@ -6,8 +6,7 @@ pipeline {
    stages {
         stage('Test') {
             steps {
-                sh 'npm install'
-                sh 'npm install mocha-junit-reporter --save-dev'
+                sh 'npm install'                 
                 sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > check.xml' 
                 sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'  
                 sh 'MOCHA_FILE=./test1.xml ./node_modules/.bin/mocha --recursive ./test/*.* --reporter mocha-junit-reporter'
