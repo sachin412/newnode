@@ -1,0 +1,188 @@
+
+
+ok, server is running
+  Check Server is Running
+    ✓ it should get reponse for Server is Running
+
+  Empty Database
+MongoDB is connected
+    ✓ it should remove all data from database before running test (2065ms)
+
+  Get User Data from DB
+ok, server is running
+    ✓ it should get User Data Array  (251ms)
+
+  Invalid Add User To DB
+ok, server is running
+    ✓ it should throw error (67ms)
+
+  valid Add User To DB
+ok, server is running
+    ✓ it should save sample user to DB (250ms)
+
+  Call Dummy Service Method using sinon
+req.user.checkUser() true
+    ✓ it shows return defined message
+
+  Add User
+{ [Function: proxy]
+  isSinonProxy: true,
+  formatters: 
+   { c: [Function: c],
+     n: [Function: n],
+     D: [Function: D],
+     C: [Function: C],
+     t: [Function: t],
+     '*': [Function: *] },
+  resetHistory: [Function: resetHistory],
+  invoke: [Function: invoke],
+  named: [Function: named],
+  getCall: [Function: getCall],
+  getCalls: [Function: getCalls],
+  calledBefore: [Function: calledBefore],
+  calledAfter: [Function: calledAfter],
+  calledImmediatelyBefore: [Function: calledImmediatelyBefore],
+  calledImmediatelyAfter: [Function: calledImmediatelyAfter],
+  withArgs: [Function: withArgs],
+  matchingFakes: [Function: matchingFakes],
+  matches: [Function: matches],
+  printf: [Function: printf],
+  calledOn: [Function],
+  alwaysCalledOn: [Function],
+  calledWith: [Function],
+  calledOnceWith: [Function],
+  calledWithMatch: [Function],
+  alwaysCalledWith: [Function],
+  alwaysCalledWithMatch: [Function],
+  calledWithExactly: [Function],
+  calledOnceWithExactly: [Function],
+  alwaysCalledWithExactly: [Function],
+  neverCalledWith: [Function],
+  neverCalledWithMatch: [Function],
+  threw: [Function],
+  alwaysThrew: [Function],
+  returned: [Function],
+  alwaysReturned: [Function],
+  calledWithNew: [Function],
+  alwaysCalledWithNew: [Function],
+  callArg: [Function],
+  callArgWith: [Function],
+  callArgOn: [Function],
+  callArgOnWith: [Function],
+  throwArg: [Function],
+  yield: [Function],
+  invokeCallback: [Function],
+  yieldOn: [Function],
+  yieldTo: [Function],
+  yieldToOn: [Function],
+  spyCall: { [Function: createSpyCall] toString: [Function: toString] },
+  called: true,
+  notCalled: false,
+  calledOnce: true,
+  calledTwice: false,
+  calledThrice: false,
+  callCount: 1,
+  firstCall: 
+   { proxy: [Circular],
+     thisValue: { addUser: [Circular] },
+     args: [ 'Vivek Rajyaguru' ],
+     lastArg: 'Vivek Rajyaguru',
+     callback: undefined,
+     returnValue: undefined,
+     exception: undefined,
+     callId: 3,
+     errorWithCallStack: Error
+    at Function.invoke (/home/sachin/newnode/newnode/node_modules/sinon/lib/sinon/spy.js:228:19)
+    at Object.proxy [as addUser] (/home/sachin/newnode/newnode/node_modules/sinon/lib/sinon/spy.js:82:54)
+    at Context.it (/home/sachin/newnode/newnode/test/index_test.js:151:8)
+    at callFn (/home/sachin/newnode/newnode/node_modules/mocha/lib/runnable.js:372:21)
+    at Test.Runnable.run (/home/sachin/newnode/newnode/node_modules/mocha/lib/runnable.js:364:7)
+    at Runner.runTest (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:455:10)
+    at /home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:573:12
+    at next (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:369:14)
+    at /home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:379:7
+    at next (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:303:14)
+    at Immediate.<anonymous> (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:347:5)
+    at runCallback (timers.js:794:20)
+    at tryOnImmediate (timers.js:752:5)
+    at processImmediate [as _immediateCallback] (timers.js:729:5) },
+  secondCall: null,
+  thirdCall: null,
+  lastCall: 
+   { proxy: [Circular],
+     thisValue: { addUser: [Circular] },
+     args: [ 'Vivek Rajyaguru' ],
+     lastArg: 'Vivek Rajyaguru',
+     callback: undefined,
+     returnValue: undefined,
+     exception: undefined,
+     callId: 3,
+     errorWithCallStack: Error
+    at Function.invoke (/home/sachin/newnode/newnode/node_modules/sinon/lib/sinon/spy.js:228:19)
+    at Object.proxy [as addUser] (/home/sachin/newnode/newnode/node_modules/sinon/lib/sinon/spy.js:82:54)
+    at Context.it (/home/sachin/newnode/newnode/test/index_test.js:151:8)
+    at callFn (/home/sachin/newnode/newnode/node_modules/mocha/lib/runnable.js:372:21)
+    at Test.Runnable.run (/home/sachin/newnode/newnode/node_modules/mocha/lib/runnable.js:364:7)
+    at Runner.runTest (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:455:10)
+    at /home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:573:12
+    at next (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:369:14)
+    at /home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:379:7
+    at next (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:303:14)
+    at Immediate.<anonymous> (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:347:5)
+    at runCallback (timers.js:794:20)
+    at tryOnImmediate (timers.js:752:5)
+    at processImmediate [as _immediateCallback] (timers.js:729:5) },
+  args: [ [ 'Vivek Rajyaguru' ] ],
+  returnValues: [ undefined ],
+  thisValues: [ { addUser: [Circular] } ],
+  exceptions: [ undefined ],
+  callIds: [ 3 ],
+  errorsWithCallStack: 
+   [ Error
+    at Function.invoke (/home/sachin/newnode/newnode/node_modules/sinon/lib/sinon/spy.js:228:19)
+    at Object.proxy [as addUser] (/home/sachin/newnode/newnode/node_modules/sinon/lib/sinon/spy.js:82:54)
+    at Context.it (/home/sachin/newnode/newnode/test/index_test.js:151:8)
+    at callFn (/home/sachin/newnode/newnode/node_modules/mocha/lib/runnable.js:372:21)
+    at Test.Runnable.run (/home/sachin/newnode/newnode/node_modules/mocha/lib/runnable.js:364:7)
+    at Runner.runTest (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:455:10)
+    at /home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:573:12
+    at next (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:369:14)
+    at /home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:379:7
+    at next (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:303:14)
+    at Immediate.<anonymous> (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:347:5)
+    at runCallback (timers.js:794:20)
+    at tryOnImmediate (timers.js:752:5)
+    at processImmediate [as _immediateCallback] (timers.js:729:5) ],
+  displayName: 'addUser',
+  toString: [Function: toString],
+  instantiateFake: [Function: create],
+  id: 'spy#2',
+  stackTraceError: Error: Stack Trace for original
+    at wrapMethod (/home/sachin/newnode/newnode/node_modules/sinon/lib/sinon/util/core/wrap-method.js:110:31)
+    at Function.spy (/home/sachin/newnode/newnode/node_modules/sinon/lib/sinon/spy.js:45:16)
+    at Sandbox.spy (/home/sachin/newnode/newnode/node_modules/sinon/lib/sinon/sandbox.js:275:26)
+    at Context.it (/home/sachin/newnode/newnode/test/index_test.js:150:9)
+    at callFn (/home/sachin/newnode/newnode/node_modules/mocha/lib/runnable.js:372:21)
+    at Test.Runnable.run (/home/sachin/newnode/newnode/node_modules/mocha/lib/runnable.js:364:7)
+    at Runner.runTest (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:455:10)
+    at /home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:573:12
+    at next (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:369:14)
+    at /home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:379:7
+    at next (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:303:14)
+    at Immediate.<anonymous> (/home/sachin/newnode/newnode/node_modules/mocha/lib/runner.js:347:5)
+    at runCallback (timers.js:794:20)
+    at tryOnImmediate (timers.js:752:5)
+    at processImmediate [as _immediateCallback] (timers.js:729:5),
+  restore: { [Function] sinon: true },
+  wrappedMethod: [Function: addUser] }
+    ✓ Should add a Dummy user
+
+  AsyncTest
+    ✓ Should Retuns value after interval
+
+  when calling filesAllCaps with
+    ✓ calls fs.readdir with
+
+
+  9 passing (3s)
+
