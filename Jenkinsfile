@@ -5,13 +5,13 @@ pipeline {
    stages {
         stage('Test') {
             steps {
-                sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml' 
+                sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > check.xml' 
                 sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000  > test1.xml'            
                   }
         }        
         stage('Checkstyle') {
            steps {   
-                 checkstyle pattern: 'test.xml'
+                 checkstyle pattern: 'check.xml'
                                 
                  }
          }       
