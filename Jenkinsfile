@@ -7,14 +7,19 @@ stage('Build & eslint'){
         }
     }
 }
-stage('test'){
+
 node {
+ stage 'test'  
     sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
-  }
- finally{
- checkstyle pattern: 'test.xml'
-  withSonarQubeEnv('sonarqube') {                                  
+ finally {
+          checkstyle pattern: 'test.xml'
+          withSonarQubeEnv('sonarqube') {                                  
                         sh 'node sonar-project.js'
         }
     }
-}  
+
+}
+
+
+
+  
