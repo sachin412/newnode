@@ -14,6 +14,7 @@
 
 node {
     stage 'after build'    
+          cobertura coberturaReportFile: 'testfile.xml'
           checkstyle pattern: 'test.xml'
           junit  'testfile.xml'
           withSonarQubeEnv('sonarqube') {                                  
