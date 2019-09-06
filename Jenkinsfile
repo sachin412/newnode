@@ -16,7 +16,7 @@ node {
 node {
     stage 'after build'    
           checkstyle pattern: 'test.xml'
-          junit : 'testfile.xml'
+          junit  'testfile.xml'
           withSonarQubeEnv('sonarqube') {                                  
                         sh 'node sonar-project.js'                        
         }
