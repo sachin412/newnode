@@ -10,15 +10,16 @@ stage('Build & eslint'){
 
 node {
  stage 'test'  
-    sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000 > testfile.xml'
+    sh './node_modules/.bin/mocha --recursive ./test/index_test.js --timeout 10000 > testfile.xml'
     }
 
 node {
     stage 'after build'    
           checkstyle pattern: 'test.xml'
           withSonarQubeEnv('sonarqube') {                                  
-                        sh 'node sonar-project.js'
+                        sh 'node sonar-project.js'                        
         }
+       junit : 'testfile.xml'
     
 }
 
