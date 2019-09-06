@@ -5,7 +5,7 @@
 
         docker.image('localhost:5000/image1'-u 0).inside {
             sh 'ls -la'
-            sh ' npm install -g'                         
+            sh ' npm install '                         
             sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
             sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
         }
