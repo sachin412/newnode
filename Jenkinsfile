@@ -10,7 +10,7 @@ stage('Build & eslint'){
 
 node {
  stage 'test'  
-    sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
+    sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000 > testfile.xml'
     }
 
 node {
