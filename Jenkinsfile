@@ -7,3 +7,8 @@ stage('Build'){
         }
     }
 }
+stage('test'){
+node {
+checkstyle pattern: 'test.xml'
+  }
+}
