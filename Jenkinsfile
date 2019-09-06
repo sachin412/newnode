@@ -14,12 +14,12 @@ node {
     }
 
 node {
-  finally {
+    stage 'after build'    
           checkstyle pattern: 'test.xml'
           withSonarQubeEnv('sonarqube') {                                  
                         sh 'node sonar-project.js'
         }
-    }
+    
 }
 
 
