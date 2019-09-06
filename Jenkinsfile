@@ -7,14 +7,14 @@
             sh 'ls -la'
             sh ' npm -v'                         
             sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
-            sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000 > testfile.xml'
+            sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
         }
     }
 }
 
 node {
     stage 'after build'    
-          cobertura coberturaReportFile: 'testfile.xml'
+          cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
           checkstyle pattern: 'test.xml'
           junit  'testfile.xml'
           withSonarQubeEnv('sonarqube') {                                  
