@@ -6,7 +6,7 @@
         docker.image('localhost:5000/image1').inside {
             sh 'ls -la'
             sh ' npm -v'
-            sh 'npm install --allow-root'             
+            sh 'npm install --allow-root --unsafe-perm=true'             
             sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
             sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000 > testfile.xml'
         }
