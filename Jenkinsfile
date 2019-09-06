@@ -3,7 +3,7 @@
 
     docker.withRegistry('http://localhost:5000') {
 
-        docker.image('localhost:5000/image1').inside {
+        docker.image('localhost:5000/image1'-u 0).inside {
             sh 'ls -la'
             sh ' npm install -g'                         
             sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
