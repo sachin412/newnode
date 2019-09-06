@@ -19,4 +19,4 @@ node {
                         sh 'node sonar-project.js'                        
         }
 
-  
+}
