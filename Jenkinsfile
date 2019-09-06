@@ -7,6 +7,7 @@
             sh 'ls -la'                                      
             sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
             sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
+            sh 'npm run cover'
         }
     }
 }
