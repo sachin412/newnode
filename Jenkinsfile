@@ -1,4 +1,4 @@
-stage('Build & eslint'){ 
+/*stage('Build & eslint'){ 
  node {
     checkout scm 
      docker.image('mongo').withRun('-e "MONGO_INITDB_ROOT_USERNAME=root" -e "MONGO_INITDB_ROOT_PASSWORD=Devops@000!!!" -p 27018:27017') { c ->       
@@ -6,7 +6,7 @@ stage('Build & eslint'){
         
         }
     }
-}
+}*/
 
 node {
  stage 'test'  
