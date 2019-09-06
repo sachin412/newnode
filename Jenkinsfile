@@ -4,8 +4,7 @@
     docker.withRegistry('http://localhost:5000') {
 
         docker.image('localhost:5000/image1').inside {
-            sh 'ls -la'
-            sh ' npm install '                         
+            sh 'ls -la'                                      
             sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
             sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
         }
