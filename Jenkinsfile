@@ -31,14 +31,14 @@
                    
                     }
                 }
-            }
+            
      stage("sidebar link") {
         steps  {
         addBadge(text: giturl, id: 1, link: "https://github.com/sachin412/newnode.git")   
         }
     }
-     
-      }
+  }   
+ }
 /*  properties {
         sidebarLinks {
             // use built-in image
