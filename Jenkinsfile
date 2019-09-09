@@ -8,6 +8,7 @@
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
                     sh 'npm install sonarqube-scanner --save-dev' 
+                    sh 'echo "$GIT_AUTHOR_NAME"'
                   
             }
         }
@@ -51,7 +52,7 @@
     } */
 
         environment {
-            GIT_AUTHOR_NAME = 'sachin412'
+            //GIT_AUTHOR_NAME = 'sachin412'
             EMAIL_TO = 'sachin.pavar@volansys.com'
         } 
      
