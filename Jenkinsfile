@@ -2,7 +2,7 @@
     agent any
 
     stages {
-        stage('Build and Test') {
+        stage('Build') {
             steps {
                     sh 'echo "$GIT_AUTHOR_NAME"'
                     sh 'npm install'                  
@@ -20,13 +20,13 @@
            }
         }
         
-        stage("Extract test results") {
+        stage("Extract") {
             steps {
                 cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
             }
         } 
        
-        stage('build && SonarQube analysis') {
+        stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
                 sh 'node sonar-project.js'
@@ -34,13 +34,7 @@
                     }
                 }
         }
-     stage('build user') {
-      steps {
-        wrap([$class: 'BuildUser']) {
-          sh 'echo "${BUILD_USER}"'
-        }
-      }
-    }
+  
      stage("sidebar link") {
         steps  { 
         addBadge(icon: "folder.gif", text: "scm", link: "https://github.com/sachin412/newnode.git")  
@@ -61,26 +55,7 @@
     } */
 
         environment {
-            GIT_AUTHOR_NAME = 'sachin412'
-            EMAIL_TO = 'sachin.pavar@volansys.com'
+            GIT_AUTHOR_NAME = 'sachin412'            
         } 
      
-    post {
-            failure {
-                emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}', 
-                        to: EMAIL_TO, 
-                        subject: 'Build failed in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
-            }
-            unstable {
-                emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}', 
-                        to: EMAIL_TO, 
-                        subject: 'Unstable build in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
-            }
-            changed {
-                emailext body: 'Check console output at $BUILD_URL to view the results.', 
-                        to: EMAIL_TO, 
-                        subject: 'Jenkins build is back to normal: $PROJECT_NAME - #$BUILD_NUMBER'
-            }
-        }   
-    }
-        
+  
