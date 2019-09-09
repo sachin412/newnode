@@ -51,6 +51,7 @@
     } */
 
         environment {
+            GIT_AUTHOR_NAME = 'sachin412'
             EMAIL_TO = 'sachin.pavar@volansys.com'
         } 
      
