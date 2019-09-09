@@ -24,7 +24,7 @@
             }
         } 
        
-        stage('build && SonarQube analysis') {
+        stage ('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
                 sh 'node sonar-project.js'
@@ -32,10 +32,7 @@
                     }
                 }
             } 
-               
-        }
-  
- stage('sidebar') {
+ stage ('sidebar') {
     properties {
         sidebarLinks {
             // use built-in image
@@ -44,7 +41,10 @@
            // link('https://wiki.acme.org/', 'Wiki', '/userContent/wiki.png')
         }
     }
+ }  
 }
+  
+
         environment {
             EMAIL_TO = 'sachin.pavar@volansys.com'
         } 
