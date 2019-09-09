@@ -16,11 +16,8 @@ node {
         sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
       stage 'after build'            
           checkstyle pattern: 'test.xml'
-          withSonarQubeEnv('sonarqube') {                                  
-             sh 'node sonar-project.js'                        
+          withSonarQubeEnv('sonarqube') {  
+           sh 'node sonar-project.js'                        
         }
-     
-   finally {
-        step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'sachin.pavar@volansys.com', sendToIndividuals: true])
-    }
+       step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'sachin.pavar@volansys.com', sendToIndividuals: true])
 }
