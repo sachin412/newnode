@@ -57,5 +57,5 @@
         environment {
             GIT_AUTHOR_NAME = 'sachin412'            
         } 
-     
+ }     
   
