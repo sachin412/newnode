@@ -33,6 +33,7 @@
                 }
             } 
  stage('sidebar') {
+  steps{
     properties {
         sidebarLinks {
             // use built-in image
@@ -42,7 +43,8 @@
         }
     }
  }  
-}
+ }
+ }
   
 
         environment {
