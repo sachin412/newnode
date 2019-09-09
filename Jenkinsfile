@@ -18,13 +18,13 @@
            }
         }
         
-        stage ("Extract test results") {
+        stage("Extract test results") {
             steps {
                 cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
             }
         } 
        
-        stage ('build && SonarQube analysis') {
+        stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
                 sh 'node sonar-project.js'
@@ -32,7 +32,7 @@
                     }
                 }
             } 
- stage ('sidebar') {
+ stage('sidebar') {
     properties {
         sidebarLinks {
             // use built-in image
