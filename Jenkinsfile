@@ -13,7 +13,7 @@ node {
       stage 'eslint'
         sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
       stage 'test'
-        sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
+        sh './node_modules/.bin/mocha/jin --recursive ./test/*.* --timeout 10000'
       stage 'after build'            
           checkstyle pattern: 'test.xml'
           withSonarQubeEnv('sonarqube') {  
