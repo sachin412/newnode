@@ -3,8 +3,7 @@
 
     docker.withRegistry('http://localhost:5000') {
 
-        docker.image('localhost:5000/image1').inside {
-            sh 'ls -la'             
+        docker.image('localhost:5000/image1').inside {                         
             sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
             sh './node_modules/.bin/eslint --ignore-path .gitignore .'
             
