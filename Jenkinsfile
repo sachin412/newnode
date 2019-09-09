@@ -34,7 +34,6 @@
             } 
  stage('sidebar') {
   steps{
-    properties {
         sidebarLinks {
             // use built-in image
             link('https://github.com/sachin412/newnode.git', 'git', 'notepad.png')
@@ -42,7 +41,7 @@
            // link('https://wiki.acme.org/', 'Wiki', '/userContent/wiki.png')
         }
     }
- }  
+   
  }
  }
   
