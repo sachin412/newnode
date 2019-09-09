@@ -34,9 +34,7 @@
             }
      stage("sidebar link") {
         steps  {
-         addBadge {
-        link('https://github.com/Ganter123/Node11.git', 'github', 'gitcommiturl')
-        }    
+        addBadge(text: git url, id: 1, link: "https://github.com/sachin412/newnode.git")   
         }
     }
      
