@@ -34,7 +34,7 @@
             }
      stage("sidebar link") {
         steps  {
-        sidebar link{
+        sidebar {
         link('https://github.com/Ganter123/Node11.git', 'github', 'gitcommiturl')
         }    
         }
