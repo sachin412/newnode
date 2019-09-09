@@ -19,5 +19,8 @@ node {
           withSonarQubeEnv('sonarqube') {                                  
              sh 'node sonar-project.js'                        
         }
-
+     
+   finally {
+        step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'sachin.pavar@volansys.com', sendToIndividuals: true])
+    }
 }
