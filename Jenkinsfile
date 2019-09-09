@@ -32,19 +32,15 @@
                     }
                 }
             } 
- stage('sidebar') {
-  steps{
+      }
+  properties {
         sidebarLinks {
             // use built-in image
-            link('https://github.com/sachin412/newnode.git', 'git', 'notepad.png')
+            link('https://github.com/sachin412/newnode.git', 'GIT', 'notepad.png')
             // use uploaded image
            // link('https://wiki.acme.org/', 'Wiki', '/userContent/wiki.png')
         }
     }
-   
- }
- }
-  
 
         environment {
             EMAIL_TO = 'sachin.pavar@volansys.com'
