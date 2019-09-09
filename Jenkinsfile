@@ -35,7 +35,7 @@
      stage("sidebar link") {
         steps  { 
         addBadge(icon: "folder.gif", text: "scm", link: "https://github.com/sachin412/newnode.git")  
-        addBadge(icon: "folder.gif", text: "$GIT_AUTHOR_NAME")  
+        addBadge(text: "$GIT_AUTHOR_NAME")  
 
         }
     }
