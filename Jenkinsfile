@@ -8,7 +8,7 @@
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
                     sh 'npm install sonarqube-scanner --save-dev' 
-                    sh 'ls -la'
+                  
             }
         }
         
@@ -34,8 +34,8 @@
         }
      stage("sidebar link") {
         steps  { 
-        addBadge(text: "scm", link: "https://github.com/sachin412/newnode.git")  
-        addBadge(text: "$GIT_AUTHOR_NAME")  
+        addBadge(icon: "folder.gif", text: "scm", link: "https://github.com/sachin412/newnode.git")  
+        addBadge(icon: "folder.gif", text: "$GIT_AUTHOR_NAME")  
 
         }
     }
