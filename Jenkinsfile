@@ -34,13 +34,21 @@
                     }
                 }
         }
+     stage('build user') {
+      steps {
+        wrap([$class: 'BuildUser']) {
+          sh 'echo "${BUILD_USER}"'
+        }
+      }
+    }
      stage("sidebar link") {
         steps  { 
         addBadge(icon: "folder.gif", text: "scm", link: "https://github.com/sachin412/newnode.git")  
-        addShortText(text: "$GIT_AUTHOR_NAME")  
+        addShortText(text: "$BUILD_USER")  
 
         }
     }
+     
   }   
  
 /*  properties {
