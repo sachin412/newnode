@@ -1,38 +1,59 @@
-pipeline {
-    agent {
-        docker { image 'node'
-               args '-u 0' }
-    }
-   stages {
-        stage('Test') {
+ pipeline {
+    agent any
+
+    stages {
+        stage('Build and Test') {
             steps {
-                sh 'sudo npm install'   
-                sh 'npm install mocha-junit-reporter --save-dev'
-                sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > check.xml' 
-                sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'  
-                sh 'mocha /node_modules/.bin/mocha --recursive ./test/*.* --reporter mocha-junit-reporter --reporter-options mochaFile=one.xml'
-                  }
-        }        
+                    sh 'npm install'                  
+                    sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
+                    sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
+                    sh 'npm install sonarqube-scanner --save-dev' 
+                    sh 'ls -la'
+            }
+        }
+        
         stage('Checkstyle') {
-           steps {   
-                 sh 'echo "hello"'
-                                
-                 }
-         }       
-        stage('SonarQube analysis 1') {
+           steps {        
+        checkstyle pattern: 'eslint.xml'
+           }
+        }
+        
+        stage ("Extract test results") {
             steps {
-                withSonarQubeEnv('sonarqube') {                                  
-                        sh 'node sonar-project.js'
-                }
-              }
-          }
-     }
-     post {
-         always {
-              checkstyle pattern: 'test.xml'
-               
-          }
+                cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
+            }
         } 
-}
-  
+       
+        stage('build && SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('darpan') {
+                sh 'node sonar-project.js'
+                   
+                    }
+                }
+            } 
+               
+        }
+        environment {
+            EMAIL_TO = 'sachin.pavar@volansys.com'
+        } 
+     
+    post {
+            failure {
+                emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}', 
+                        to: EMAIL_TO, 
+                        subject: 'Build failed in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
+            }
+            unstable {
+                emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}', 
+                        to: EMAIL_TO, 
+                        subject: 'Unstable build in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
+            }
+            changed {
+                emailext body: 'Check console output at $BUILD_URL to view the results.', 
+                        to: EMAIL_TO, 
+                        subject: 'Jenkins build is back to normal: $PROJECT_NAME - #$BUILD_NUMBER'
+            }
+        }   
+    }
         
