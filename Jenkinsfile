@@ -62,7 +62,7 @@ pipeline {
    failure {
       email()
       }
-   unstable {
+   always {
        cobertura()
       }
   }
