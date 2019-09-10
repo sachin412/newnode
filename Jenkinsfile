@@ -15,11 +15,11 @@ pipeline {
             }
         }
         
-        stage('Checkstyle') {
+       /* stage('Checkstyle') {
            steps {        
         checkstyle pattern: 'eslint.xml'
            }
-        }
+        } */
         
        /* stage("Extract") {
             steps {
@@ -64,7 +64,8 @@ pipeline {
       }
    always {
        _cobertura()
-       _sidebar()   
+       _sidebar()  
+       _eslint()
    } 
   }
  }
