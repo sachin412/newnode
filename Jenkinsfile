@@ -63,7 +63,7 @@ pipeline {
       email()
       }
    always {
-       cobertura()
+       _cobertura()
       } 
   }
  }
