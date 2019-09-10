@@ -1,4 +1,5 @@
- pipeline {
+library identifier: 'newnode@testlibrary', retriever: legacySCM(scm) 
+pipeline {
     agent any
 
     stages {
