@@ -21,11 +21,11 @@ pipeline {
            }
         }
         
-       /* stage("Extract") {
+        stage("Extract") {
             steps {
                 cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
             }
-        } */
+        } 
        
         stage('SonarQube analysis') {
             steps {
@@ -46,7 +46,7 @@ pipeline {
      
   }   
  
-/*  properties {
+ /* properties {
         sidebarLinks {
             // use built-in image
             link('https://github.com/sachin412/newnode.git', 'GIT', 'notepad.png')
@@ -62,9 +62,9 @@ pipeline {
    failure {
       email()
       }
-   always {
+  /* always {
        cobertura()
-      }
+      } */
   }
  }
   
