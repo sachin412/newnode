@@ -36,13 +36,13 @@ pipeline {
                 }
         }
   
-     stage("sidebar link") {
+   /*  stage("sidebar link") {
         steps  { 
         addBadge(icon: "folder.gif", text: "scm", link: "https://github.com/sachin412/newnode.git")  
          addShortText(text: "${GIT_AUTHOR_NAME}")  
 
         }
-    }
+    } */
      
   }   
  
@@ -64,7 +64,8 @@ pipeline {
       }
    always {
        _cobertura()
-      } 
+       _sidebar()   
+   } 
   }
  }
   
