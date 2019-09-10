@@ -58,8 +58,9 @@
             GIT_AUTHOR_NAME = 'sachin412'            
         } 
   post {
+   always{
       email()
-  }
+      }
+    }
  }
-
   
