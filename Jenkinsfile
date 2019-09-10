@@ -59,7 +59,7 @@ pipeline {
             GIT_AUTHOR_NAME = 'sachin412'            
         } 
   post {
-   always{
+   failure {
       email()
       }
     }
