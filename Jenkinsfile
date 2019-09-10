@@ -27,14 +27,14 @@ pipeline {
             }
         } */ 
        
-        stage('SonarQube analysis') {
+       /* stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
                 sh 'node sonar-project.js'
                    
                     }
                 }
-        }
+        } */
   
    /*  stage("sidebar link") {
         steps  { 
@@ -66,6 +66,7 @@ pipeline {
        _cobertura()
        _sidebar()  
        _eslint()
+       _sonar()
    } 
   }
  }
