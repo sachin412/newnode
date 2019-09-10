@@ -60,7 +60,7 @@ pipeline {
         } 
   post {
    always{
-      email.call()
+      email()
       }
     }
  }
