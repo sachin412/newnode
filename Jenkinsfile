@@ -1,19 +1,27 @@
- node {
-    checkout scm
+library identifier: 'newnode@test-lib', retriever: legacySCM(scm) 
+pipeline {
+    agent any
 
-    def customImage = docker.build("myimage:${env.BUILD_ID}")
-
-    customImage.inside {
-        sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000 > testfile.xml'
-        sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
-    }
-}
-node {
-    stage 'after build'    
-          checkstyle pattern: 'test.xml'
-          junit  'testfile.xml'
-          withSonarQubeEnv('sonarqube') {                                  
-                        sh 'node sonar-project.js'                        
+    stages {
+        stage('Build') {
+            steps {
+                     sh 'npm install'                  
+                    sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
+                    sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
+                    sh 'npm install sonarqube-scanner --save-dev'                  
+            }
         }
-          
-}
+    }   
+
+post {
+   failure {
+      email()
+      }
+   always {
+       _cobertura()
+       _sidebar()  
+       _eslint()
+       _sonar()
+   } 
+  }
+ }
