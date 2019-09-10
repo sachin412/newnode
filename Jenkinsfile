@@ -1,4 +1,4 @@
-library identifier: 'newnode@all', retriever: legacySCM(scm) 
+library identifier: 'newnode@test-lib', retriever: legacySCM(scm) 
 pipeline {
     agent any
 
