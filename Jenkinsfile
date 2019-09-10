@@ -21,11 +21,11 @@ pipeline {
            }
         }
         
-        stage("Extract") {
+       /* stage("Extract") {
             steps {
                 cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
             }
-        } 
+        } */
        
         stage('SonarQube analysis') {
             steps {
@@ -62,6 +62,9 @@ pipeline {
    failure {
       email()
       }
-    }
+      always {
+       cobertura()
+      }
+  }
  }
   
