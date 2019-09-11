@@ -4,9 +4,7 @@ library identifier: 'library@master', retriever: modernSCM(
    ])
 pipeline {
     agent any
-
-    stages {
-        
+    stages {        
         stage ('pre-build') {
             steps {
                      sh 'npm install'     
@@ -26,8 +24,7 @@ pipeline {
             steps {
                      _sonarqube()            
             }
-        }
-    
+        }    
     }   
 
 post {
