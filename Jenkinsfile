@@ -34,8 +34,10 @@ post {
    failure {
       email()
       }
-   always {
-       _cobertura()
+  changed {
+      _cobertura()
+      }
+   always {       
        _sidebar()  
        _eslint()
        _sonar()
