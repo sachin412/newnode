@@ -9,8 +9,7 @@ pipeline {
         
         stage ('pre-build') {
             steps {
-                     sh 'npm install' 
-              sh 'echo ${BUILD_URL}'
+                     sh 'npm install'              
             }
         }
         stage('eslint') {
