@@ -33,6 +33,7 @@ post {
       }
   success {
       _cobertura()
+      
       }
    always {       
        _sidebar()  
