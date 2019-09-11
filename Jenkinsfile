@@ -6,14 +6,12 @@ pipeline {
         
         stage ('pre-build') {
             steps {
-                     sh 'npm install'            
+                     sh 'npm install'     
             }
         }
         stage('eslint') {
-            steps {                                       
-                    
-                    _eslintcommand()
-                                    
+            steps {                    
+                    _eslintcommand()                            
             }
         }
      stage ('test') {
