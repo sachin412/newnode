@@ -1,4 +1,7 @@
-library identifier: 'library@master', retriever: legacySCM(scm) 
+library identifier: 'library@master', retriever: modernSCM(
+  [$class: 'GitSCMSource',
+   remote: 'https://github.com/sachin412/library.git',
+   ])
 pipeline {
     agent any
 
