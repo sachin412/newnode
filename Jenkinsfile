@@ -1,16 +1,30 @@
-library identifier: 'newnode@test-lib', retriever: legacySCM(scm) 
+library identifier: 'library@master', retriever: legacySCM(scm) 
 pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        
+        stage ('pre-build') {
             steps {
-                     sh 'npm install'                  
-                    sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
-                    sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
-                    sh 'npm install sonarqube-scanner --save-dev'                  
+                     sh 'npm install'     
             }
         }
+        stage('eslint') {
+            steps {                    
+                    _eslintcommand()                            
+            }
+        }
+     stage ('test') {
+            steps {
+                    _testrun()         
+            }
+        }
+      stage ('sonarqube') {
+            steps {
+                     _sonarqube()            
+            }
+        }
+    
     }   
 
 post {
