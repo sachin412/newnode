@@ -22,7 +22,8 @@ pipeline {
         }
       stage ('sonarqube') {
             steps {
-                     _sonarqube()            
+                     _sonarqube()   
+                    exit 4
             }
         }    
     }   
