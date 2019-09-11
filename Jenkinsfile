@@ -3,14 +3,30 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        
+        stage ('pre-build') {
             steps {
-                     sh 'npm install'                  
-                    sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
-                    sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
-                    sh 'npm install sonarqube-scanner --save-dev'                  
+                     sh 'npm install'            
             }
         }
+        stage('eslint') {
+            steps {                                       
+                    sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
+                    
+                                    
+            }
+        }
+     stage ('test') {
+            steps {
+                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'          
+            }
+        }
+      stage ('sonarqube') {
+            steps {
+                     sh 'npm install sonarqube-scanner --save-dev'            
+            }
+        }
+    
     }   
 
 post {
