@@ -18,7 +18,7 @@ pipeline {
         }
      stage ('test') {
             steps {
-                    _testrun*()         
+                    _testrun()         
             }
         }
       stage ('sonarqube') {
