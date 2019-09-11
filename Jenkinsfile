@@ -11,8 +11,8 @@ pipeline {
         }
         stage('eslint') {
             steps {                                       
-                    sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     
+                    _eslintcommand()
                                     
             }
         }
@@ -23,7 +23,7 @@ pipeline {
         }
       stage ('sonarqube') {
             steps {
-                     sh 'npm install sonarqube-scanner --save-dev'            
+                     _sonarqube()            
             }
         }
     
