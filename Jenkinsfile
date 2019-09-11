@@ -18,7 +18,7 @@ pipeline {
         }
      stage ('test') {
             steps {
-                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'          
+                    _testrun*()         
             }
         }
       stage ('sonarqube') {
