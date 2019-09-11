@@ -9,7 +9,8 @@ pipeline {
         
         stage ('pre-build') {
             steps {
-                     sh 'npm install'     
+                     sh 'npm install' 
+              sh 'echo ${GIT_USER}'
             }
         }
         stage('eslint') {
