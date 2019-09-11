@@ -31,7 +31,7 @@ post {
    failure {
       email()
       }
-  changed {
+  success {
       _cobertura()
       }
    always {       
