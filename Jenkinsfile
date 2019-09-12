@@ -1,4 +1,9 @@
- pipeline {
+library identifier: 'library@master', retriever: modernSCM(
+  [$class: 'GitSCMSource',
+   remote: 'https://github.com/sachin412/library.git'
+   ]) 
+
+pipeline {
     agent any
 
     stages {
@@ -16,7 +21,7 @@
         
         stage('Checkstyle') {
            steps {        
-        checkstyle pattern: 'eslint.xml'
+              _eslint()
            }
         }
         
