@@ -21,7 +21,7 @@ pipeline {
          }       
         stage('SonarQube analysis 1') {
             steps {
-                withSonarQubeEnv('sonar1') {                                  
+                withSonarQubeEnv('sonarqube') {                                  
                         sh 'node sonar-project.js'
                 }
               }
