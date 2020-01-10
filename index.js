@@ -34,7 +34,7 @@ var options = {
  * @requires {object} connection configuration object
  */
 const connectWithRetry = () => {
-	mongoose.connect('mongodb+srv://jenkins:Jenkins123@cluster0-hchx4.mongodb.net/userDb?retryWrites=true&w=majority', options).then(()=>{
+	mongoose.connect('mongodb://localhost:27017/userDb', options).then(()=>{
 		console.log('MongoDB is connected')
 	}).catch(err=> {
 		console.log('MongoDB connection unsuccessful, retry after 5 seconds.', err)
