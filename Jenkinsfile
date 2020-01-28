@@ -16,7 +16,7 @@ pipeline {
                 sh 'aws s3api create-bucket --bucket  ${params.deployment_bucket_name} --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2'  
                 }
            }
-        stage('Bucket create') {
+        stage('aws config') {
             steps {
                 sh 'cd /root/.aws/'
                 sh 'echo "[default]"' >> /root/.aws/config
