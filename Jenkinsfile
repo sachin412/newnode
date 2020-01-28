@@ -4,6 +4,8 @@ pipeline {
     choice(name: 'CHOICE', choices: ['init', 'update', 'destroy'], description: 'Pick something')
     string(name: 'environment', defaultValue: 'dev', description: 'Enviroment to deploy')
     string(name: 'region', defaultValue: 'us-west-2', description: 'region of deployment')
+    string(name: 'aws_access_key_id', defaultValue: '', description: 'access key to deploy')
+    string(name: 'aws_secret_access_key', defaultValue: '', description: 'secret accesskey to deploy')
     string(name: 'deployment_bucket_name', defaultValue: '', description: 'give appropriate name of bucket')
     string(name: 'deployment_bucket_region', defaultValue: 'us-west-2', description: 'deployment bucket region')
 
@@ -11,14 +13,22 @@ pipeline {
     stages {
         stage('Bucket create') {
             steps {
-                sh 'aws s3api create-bucket --bucket  vweportal2020 --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2'  
+                sh 'aws s3api create-bucket --bucket  ${params.deployment_bucket_name} --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2'  
                 }
            }
+        stage('Bucket create') {
+            steps {
+                sh 'echo "[default]"\n 
+                "aws_access_key_id=${params.aws_access_key_id}" \n
+                "aws_secret_access_key=${params.aws_secret_access_key}" \n
+                "region=us-west-1" 
+                "output=json" > /root/.aws/config' 
+                }
+           }   
         
         stage('init') { 
             when {
-                // Only say hello if a "greeting" is requested
-                expression { params.choise == 'init' }
+                 expression { params.choise == 'init' }
             }
             steps {
                 sh './init.sh ${params.environment} ${params.region} ${params.deployment_bucket_name} ${params.deployment_bucket_region}'
@@ -26,8 +36,7 @@ pipeline {
         }
         stage('update') { 
             when {
-                // Only say hello if a "greeting" is requested
-                expression { params.choise == 'update' }
+                 expression { params.choise == 'update' }
             }
             steps {
                 sh './deploy.sh ${params.environment} ${params.region} ${params.deployment_bucket_name} ${params.deployment_bucket_region}'
@@ -36,8 +45,7 @@ pipeline {
 
         stage('destroy') { 
             when {
-                // Only say hello if a "greeting" is requested
-                expression { params.choise == 'destroy' }
+                 expression { params.choise == 'destroy' }
             }
             steps {
                 sh './destroy.sh ${params.environment} ${params.region} ${params.deployment_bucket_name} ${params.deployment_bucket_region}'
