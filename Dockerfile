@@ -26,5 +26,10 @@ RUN mkdir /root/.aws/
 
 RUN cd /root/.aws/
 
+RUN echo "[default]" > /root/.aws/config
+RUN echo "aws_access_key_id=AKIAQSJYPYLGKTFZNNWE" >> /root/.aws/config
+RUN echo "aws_secret_access_key=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" >> /root/.aws/config
+RUN echo "region=ap-south-1" >> /root/.aws/config
+RUN echo "output=json" >> /root/.aws/config
 
 ENTRYPOINT "tail" "-f" "/dev/null"
