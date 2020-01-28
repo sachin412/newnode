@@ -1,23 +1,30 @@
-FROM node
+ FROM hashicorp/terraform
 
 USER root
 
-RUN git clone https://github.com/sachin412/newnode.git
+RUN apk update && apk add && apk add openssl 
 
-RUN apt -y update
+RUN echo -e "\n"|ssh-keygen -t rsa -N "" -m PEM
 
-RUN apt install -y mongodb
+RUN openssl rsa -in ~/.ssh/id_rsa -outform pem > id_rsa.pem
 
-RUN service  mongodb start
+RUN apk add --update \
+    python \
+    python-dev \
+    py-pip \
+    build-base \
+  && pip install virtualenv \
+  && rm -rf /var/cache/apk/*
 
-EXPOSE 27017
+RUN pip install awscli
 
-RUN cp -r newnode/* .
+RUN echo "hello"
 
-RUN  npm install
+RUN cd /root
 
-RUN npm install eslint
+RUN mkdir /root/.aws/
 
-RUN chmod 777 /run/mongodb/mongodb.pid
+RUN cd /root/.aws/
 
-CMD service mongodb start && tail -f /dev/null
+
+ENTRYPOINT "tail" "-f" "/dev/null"
