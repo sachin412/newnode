@@ -19,11 +19,11 @@ pipeline {
         stage('Bucket create') {
             steps {
                 sh 'cd /root/.aws/'
-                sh 'echo "[default]"\n 
-                "aws_access_key_id=${params.aws_access_key_id}" \n
-                "aws_secret_access_key=${params.aws_secret_access_key}" \n
-                "region=us-west-1" 
-                "output=json" > /root/.aws/config' 
+                sh 'echo "[default]"' >> /root/.aws/config'
+                sh 'echo "aws_access_key_id=${params.aws_access_key_id}"' >> /root/.aws/config'
+                sh 'echo "aws_secret_access_key=${params.aws_secret_access_key}"' >> /root/.aws/config'
+                sh 'echo "region=us-west-1" '                
+                sh 'echo "output=json"' >> /root/.aws/config' 
                 }
            }   
         
