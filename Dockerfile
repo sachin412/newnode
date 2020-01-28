@@ -1,4 +1,4 @@
- FROM hashicorp/terraform
+FROM hashicorp/terraform
 
 USER root
 
