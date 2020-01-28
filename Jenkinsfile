@@ -18,6 +18,7 @@ pipeline {
            }
         stage('Bucket create') {
             steps {
+                sh 'cd /root/.aws/'
                 sh 'echo "[default]"\n 
                 "aws_access_key_id=${params.aws_access_key_id}" \n
                 "aws_secret_access_key=${params.aws_secret_access_key}" \n
