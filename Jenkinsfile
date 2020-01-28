@@ -1,10 +1,10 @@
 pipeline {
     agent { dockerfile true }
     parameters {    
-    choice(name: 'CHOICE', choices: ['init', 'update', 'destroy'], description: 'Pick something'),
-    string(name: 'environment', defaultValue: 'dev', description: 'Enviroment to deploy'),
-    string(name: 'region', defaultValue: 'us-west-2', description: 'region of deployment'),
-    string(name: 'deployment_bucket_name', defaultValue: '', description: 'give appropriate name of bucket'),
+    choice(name: 'CHOICE', choices: ['init', 'update', 'destroy'], description: 'Pick something')
+    string(name: 'environment', defaultValue: 'dev', description: 'Enviroment to deploy')
+    string(name: 'region', defaultValue: 'us-west-2', description: 'region of deployment')
+    string(name: 'deployment_bucket_name', defaultValue: '', description: 'give appropriate name of bucket')
     string(name: 'deployment_bucket_region', defaultValue: 'us-west-2', description: 'deployment bucket region')
 
     }
@@ -34,7 +34,7 @@ pipeline {
             }
         }
 
-        stage('init') { 
+        stage('destroy') { 
             when {
                 // Only say hello if a "greeting" is requested
                 expression { params.choise == 'destroy' }
